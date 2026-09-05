@@ -1,0 +1,14 @@
+<resources>
+    <!-- Bảng màu phong cách RedMagic: đen tuyền + đỏ neon + cam -->
+    <color name="bg_dark">#08090D</color>
+    <color name="surface_dark">#15100F</color>
+    <color name="surface_dark_glass">#D915100F</color>
+    <color name="accent_primary">#FF2D2D</color>
+    <color name="accent_game">#FF6B00</color>
+    <color name="accent_border">#33FF2D2D</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#9C9494</color>
+    <color name="success">#3DDC97</color>
+    <color name="mode_selected">#FF2D2D</color>
+    <color name="mode_unselected">#1F1A19</color>
+</resources>
