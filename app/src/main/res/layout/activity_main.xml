@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gaming_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"
+            android:layout_marginBottom="4dp" />
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="4dp"
+            android:background="@drawable/divider_gaming_gradient"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tối ưu máy chơi game - dùng được mọi máy, mọi tựa game"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Thẻ thông tin hệ thống -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_dark_glass"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvRamInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RAM: đang tải..."
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvBatteryInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pin: đang tải..."
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvStorageInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bộ nhớ: đang tải..."
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvTempInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nhiệt độ: đang tải..."
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RAM ĐANG DÙNG (%)"
+                    android:textColor="@color/accent_game"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="4dp" />
+
+                <com.boostvn.gamebooster.RealtimeChartView
+                    android:id="@+id/chartRam"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Trạng thái đang tối ưu (ẩn mặc định) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardOptimizing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/surface_dark_glass"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <ProgressBar
+                    android:id="@+id/progressOptimizing"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="12dp"
+                    android:indeterminateTint="@color/accent_primary" />
+
+                <TextView
+                    android:id="@+id/tvOptimizingStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Đang tối ưu..."
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Chế độ hiệu năng (3 mức, giống Game Space RedMagic) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHẾ ĐỘ HIỆU NĂNG"
+            android:textColor="@color/accent_game"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/btnModeSave"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Tiết kiệm"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:background="@drawable/btn_mode_unselected"
+            android:backgroundTint="@null"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/btnModeBalance"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Cân bằng"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:background="@drawable/btn_mode_selected"
+            android:backgroundTint="@null"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/btnModeExtreme"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Cực mạnh"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:background="@drawable/btn_mode_unselected"
+            android:backgroundTint="@null"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/btnModeAuto"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_weight="1"
+                android:text="Tự động"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:background="@drawable/btn_mode_unselected"
+            android:backgroundTint="@null"
+                android:textColor="@color/text_primary" />
+
+        </LinearLayout>
+
+        <!-- Chế độ chơi game -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHẾ ĐỘ CHƠI GAME"
+            android:textColor="@color/accent_game"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnGameFreeFire"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="🔥 Tối ưu &amp; Mở Free Fire"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/btn_primary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnGameLienQuan"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="⚔️ Tối ưu &amp; Mở Liên Quân"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/btn_primary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnGameOther"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="🕹️ Tối ưu &amp; Mở game khác..."
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnWifiPanel"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="🌐 Mở nhanh bảng Wifi / Dữ liệu di động"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Tính năng kiểu Game Space (RedMagic) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GAME SPACE"
+            android:textColor="@color/accent_game"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnShizuku"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="⚡ Cấp quyền Shizuku (mở khoá thêm sức mạnh)"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:background="@drawable/btn_shizuku"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btnToggleWifi"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="📶 Bật/Tắt Wifi"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:background="@drawable/btn_secondary_redmagic"
+                android:backgroundTint="@null"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/btnToggleData"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="📱 Bật/Tắt 4G"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:background="@drawable/btn_secondary_redmagic"
+                android:backgroundTint="@null"
+                android:textColor="@color/text_primary" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnHud"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="🎮 Bật HUD nổi khi chơi game"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnDnd"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="🔕 Không làm phiền: đang tắt"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnPing"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="📶 Đo ping mạng"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvPingResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/accent_game"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Công cụ dọn dẹp -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CÔNG CỤ TỐI ƯU"
+            android:textColor="@color/accent_game"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnClearCache"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Xóa cache ứng dụng"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnKillBackground"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Tắt app chạy nền"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnScanJunk"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Quét &amp; xóa file rác"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnGrantPermissions"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Cấp quyền cần thiết"
+            android:textAllCaps="false"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnPerfTips"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Mẹo tăng hiệu năng máy thật (Dev Options)"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:background="@drawable/btn_secondary_redmagic"
+            android:backgroundTint="@null"
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Nhật ký hoạt động -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_dark_glass"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/tvLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                android:padding="16dp"
+                android:text="Nhật ký hoạt động sẽ hiện ở đây..."
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
