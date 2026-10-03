@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Nền đen tuyền, ngả xanh đậm ở đáy -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="#000000"
+                android:centerColor="#00080A"
+                android:endColor="#001015" />
+        </shape>
+    </item>
+
+    <!-- Quầng sáng cyan rực lớn ở đáy màn hình -->
+    <item
+        android:gravity="bottom|center_horizontal"
+        android:width="700dp"
+        android:height="420dp"
+        android:bottom="-220dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="350dp"
+                android:centerColor="#8000D9FF"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+    <!-- Quầng sáng cam nhỏ góc trên phải -->
+    <item
+        android:gravity="top|end"
+        android:width="320dp"
+        android:height="320dp"
+        android:top="-100dp"
+        android:end="-100dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="160dp"
+                android:centerColor="#55FF6B00"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+    <!-- Vệt chéo neon cyan, phong cách "slash" cyberpunk -->
+    <item android:gravity="center">
+        <rotate
+            android:fromDegrees="-18"
+            android:toDegrees="-18"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape android:shape="rectangle">
+                <gradient
+                    android:angle="0"
+                    android:startColor="#0000D9FF"
+                    android:centerColor="#6600D9FF"
+                    android:endColor="#0000D9FF" />
+                <size android:height="3dp" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- Vệt chéo neon cam mỏng hơn, lệch nhẹ -->
+    <item android:gravity="center" android:top="40dp">
+        <rotate
+            android:fromDegrees="-18"
+            android:toDegrees="-18"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape android:shape="rectangle">
+                <gradient
+                    android:angle="0"
+                    android:startColor="#00FF6B00"
+                    android:centerColor="#40FF6B00"
+                    android:endColor="#00FF6B00" />
+                <size android:height="2dp" />
+            </shape>
+        </rotate>
+    </item>
+
+</layer-list>
