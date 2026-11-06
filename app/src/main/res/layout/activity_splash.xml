@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Splash dùng ảnh nền mới do người dùng cung cấp (đã có sẵn logo + tên app + chấm tải bên
+  trong ảnh) - KHÔNG còn các view logo/tiêu đề/chấm động riêng như bản trước (sẽ bị lặp lại
+  2 lần nếu giữ). Chỉ còn hiệu ứng mờ dần cho toàn màn hình lúc mở app.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgSplashBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_splash_new" />
+
+</FrameLayout>

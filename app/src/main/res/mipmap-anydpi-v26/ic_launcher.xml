@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Logo mới (nền đã ghép sẵn trong PNG foreground) - background đặt màu đặc trùng nền
+     ảnh gốc để không lộ viền khi hệ thống áp mask (tròn/vuông tròn) theo từng launcher. -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_bg_color" />
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+</adaptive-icon>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_hud_card"
+    android:padding="10dp">
+
+    <!-- Thanh kéo + nút thu gọn / đóng -->
+    <LinearLayout
+        android:id="@+id/hudDragHandle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="6dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="⋮⋮ GAME SPACE"
+            android:textColor="#FF6B00"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:id="@+id/btnCollapseHud"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:text="—"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/btnCloseHud"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:text="✕"
+            android:textColor="#FF2D2D"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+    <!-- Nội dung đầy đủ: 2 đồng hồ đo + hàng nút tắt nhanh -->
+    <LinearLayout
+        android:id="@+id/hudFullContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.boostvn.gamebooster.GaugeRingView
+                android:id="@+id/gaugeCpu"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_marginEnd="10dp" />
+
+            <com.boostvn.gamebooster.GaugeRingView
+                android:id="@+id/gaugeRam"
+                android:layout_width="88dp"
+                android:layout_height="88dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvHudExtra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="PIN -- · PING -- · 🌡 --°C"
+            android:textColor="#9C9494"
+            android:textSize="10sp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Hàng nút tắt nhanh -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/btnHudKillBg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_hud_icon_btn"
+                android:gravity="center"
+                android:text="🧹"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/btnHudDnd"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_hud_icon_btn"
+                android:gravity="center"
+                android:text="🔕"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/btnHudRefreshPing"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_hud_icon_btn"
+                android:gravity="center"
+                android:text="📶"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
